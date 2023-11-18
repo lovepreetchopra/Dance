@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require('express')
 const path = require('path')
 const app = express();
@@ -7,8 +8,8 @@ const bodyparser = require('body-parser');
 main().catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect('mongodb+srv://lovepreetchopra:JERRY0811ISHU@mongoyoutube.qfmodgb.mongodb.net/DanceAcademy');
-
+  await mongoose.connect(process.env.MONGO_URI);
+//   'mongodb+srv://lovepreetchopra:JERRY0811ISHU@mongoyoutube.qfmodgb.mongodb.net/DanceAcademy'
   // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
 }  
 const port = 8000;
